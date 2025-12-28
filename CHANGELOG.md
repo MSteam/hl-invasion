@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed mouse cursor being invisible in VGUI1 menus when raw input is enabled (Thanks SamVanheer, RykahKnight)
 - Fix m_rawinput 1 getting mouse stuck in box (Thanks Solokiller)
 
 ## [2.0.0] - 2021-11-07
