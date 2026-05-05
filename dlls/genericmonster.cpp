@@ -90,9 +90,10 @@ void CGenericMonster :: HandleAnimEvent( MonsterEvent_t *pEvent )
 	// modif de Julien
 	case 1444:
 		Vector vecBout;
-		GetAttachment( 1, vecBout, Vector (0,0,0) );
+		Vector vecDummy(0, 0, 0);
+		GetAttachment( 1, vecBout, vecDummy );
 		Vector vecDir;
-		GetAttachment( 0, vecDir, Vector (0,0,0) );
+		GetAttachment( 0, vecDir, vecDummy );
 
 		MESSAGE_BEGIN( MSG_ALL, gmsgClientDecal );
 

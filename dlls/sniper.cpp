@@ -273,8 +273,9 @@ void CSniper :: GibMonster ( void )
 
 	Vector	vecGunPos = GetGunPosition();
 	Vector	vecGunAngles;
+	Vector	vecDummy(0, 0, 0);
 
-	GetAttachment( 0, Vector(0,0,0), vecGunAngles );
+	GetAttachment( 0, vecDummy, vecGunAngles );
 	DropItem( "weapon_fsniper", vecGunPos, vecGunAngles );
 
 	CBaseMonster :: GibMonster();
@@ -481,8 +482,9 @@ void CSniper :: HandleAnimEvent( MonsterEvent_t *pEvent )
 
 			Vector	vecGunPos = GetGunPosition();
 			Vector	vecGunAngles;
+			Vector	vecGunDummy(0, 0, 0);
 
-			GetAttachment( 0, Vector(0,0,0), vecGunAngles );
+			GetAttachment( 0, vecGunDummy, vecGunAngles );
 			DropItem( "weapon_fsniper", vecGunPos, vecGunAngles );
 			break;
 		}

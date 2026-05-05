@@ -32,6 +32,9 @@ DECLARE_MESSAGE(m_Health, Health )
 DECLARE_MESSAGE(m_Health, Damage )
 DECLARE_MESSAGE(m_Health, Medkit )	// modif de Julien
 
+// Small HUD digits (12x16) are drawn through gHUD.DrawSmallNumberRight()
+// — sprite atlas is loaded centrally in CHud::VidInit().
+
 #define PAIN_NAME "sprites/%d_pain.spr"
 #define DAMAGE_NAME "sprites/%d_dmg.spr"
 
@@ -109,9 +112,9 @@ int CHudHealth::VidInit(void)
 
 	// modif de Julien
 	m_sprDisposition = SPR_Load("sprites/hud_health_dispostion.spr");
-	m_wrcDisposition = CreateWrect ( 2, 2, 174, 158 ); 
+	m_wrcDisposition = CreateWrect ( 2, 2, 174, 158 );
 	m_sprVie = SPR_Load("sprites/hud_health_vie.spr");
-	m_wrcVie = CreateWrect ( 1, 8 + (int)(144*0.01*(100-m_iHealth)), 30, 158 ); 
+	m_wrcVie = CreateWrect ( 1, 8 + (int)(144*0.01*(100-m_iHealth)), 30, 158 );
 
 	m_sprMedkit = SPR_Load("sprites/hud_health_medkit.spr");
 	m_wrcMedkit = CreateWrect ( 0, 0, 104, 32 );
@@ -294,9 +297,8 @@ int CHudHealth::Draw(float flTime)
 	SPR_Set( m_sprDisposition, r, g, b );
 	SPR_DrawHoles(0, 0, 0, &m_wrcDisposition);
 
-	char cNombre [16];
-	std::sprintf ( cNombre, "%i", m_iHealth );
-	gHUD.DrawHudStringReverse( 195, 135, 0, cNombre, r, g, b );
+	// Sprite digits: shift health one digit-width right per design (otherwise "1" of 100 hits frame edge)
+	gHUD.DrawSmallNumberRight( 195 + 12, 135, m_iHealth, r, g, b );
 
 	if ( m_iHealth > 0 )
 	{
@@ -309,10 +311,8 @@ int CHudHealth::Draw(float flTime)
 	SPR_Set( m_sprMedkit, 255, 255, 255 );
 	SPR_DrawHoles(0, 172, 0, &m_wrcMedkit);
 
-	std::sprintf ( cNombre, "%i", m_iBattery );
-	gHUD.DrawHudStringReverse( 217, 10, 0, cNombre, 255, 255, 255 );
-	std::sprintf ( cNombre, "%i", m_iMedkit );
-	gHUD.DrawHudStringReverse( 284, 10, 0, cNombre, 255, 255, 255 );
+	gHUD.DrawSmallNumberRight( 217, 10, m_iBattery, 255, 255, 255 );
+	gHUD.DrawSmallNumberRight( 284, 10, m_iMedkit, 255, 255, 255 );
 
 
 

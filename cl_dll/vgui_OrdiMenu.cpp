@@ -3,7 +3,7 @@
 *			vgui_OrdiMenu.cpp , par Julien								*
 *																		*
 ************************************************************************/
-// menu vgui pour le contrôle de l ordinateur
+// menu vgui pour le contrï¿½le de l ordinateur
 
 
 
@@ -24,7 +24,7 @@ void GetOrdiText ( const char *textname, char *messagename, Font *pRadioFont, in
 
 #define SCANNE_CHAR if ( std::fscanf ( myfile, "%s", cscan ) == EOF ) break
 
-#define TEXT_FILE_PATH			"invasion\\texts.txt"
+#define TEXT_FILE_PATH			"invasion/texts.txt"
 
 
 /*
@@ -42,26 +42,26 @@ void GetOrdiText ( const char *textname, char *messagename, Font *pRadioFont, in
 #define BOUTON_APPLICATIONS		"Applications"
 #define BOUTON_MESSAGERIE		"Messagerie"
 #define BOUTON_INFORMATIONS		"Informations"
-#define BOUTON_DONNEESSYSTEME	"Données système"
-#define BOUTON_SECURITE			"Sécurité"
+#define BOUTON_DONNEESSYSTEME	"Donnï¿½es systï¿½me"
+#define BOUTON_SECURITE			"Sï¿½curitï¿½"
 
 #define ENTREE_TEXT		"Entrer"
-#define TITLE_TEXT		"Réseau informatique interne de Black Mesa"
-#define INTRO_TEXT		"Terminal n° 622 - 431 - 018\nSecteur L-G12\n\nL'acces aux données de ce système est\nstrictement réservé au personnel accrédité.\n\nToute utilisation non-autorisée donnera lieu\nà un renvoi immédiat et sera \nsévèrement punie.\n\n\nVotre code ECA peut vous être demandé.\nIl figure sur votre autorisation d'utilisation à retirer\nau bureau du personnel, secteur A niveau 5.\n\nLa direction du centre de recherches de Black Mesa\nne peut en aucun cas être tenue pour responsable\nde la perte de ce code."	
-#define MESSAGE_TEXTE5	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        ROSENBERG, Docteur\n\nNuméro de message :\n        08042002P-194122M\n\n\n	Cher collègue, je m'inquiète de l'activité des militaires\nces jours ci. Ils nous ont permi de poursuivre nos travaux\ncar je crois que la technologie de la téléportation les intéressait.\nMais j'ai l'impression que cela ne va pas durer.\nIls se débarasseront de nous quand nous\nne leur feront plus besoin.\n"
-#define MESSAGE_TEXTE2	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        VAN BUREN, Docteur\n\nNuméro de message :\n        36682929L-220614M\n\n\n	Je vous addresse ce courrier pour vous prier\nde bien vouloir vous rendre au plus vite dans mon bureau.\nJ'ai des révélations importantes à vous faire\nconcernant l'activité des militaires.\nCeux-ci ont des raisons de croire que la menace extraterrestre\nn'est pas encore écartée ; cela pourrait nous causer\nde graves ennuis.\n"
-#define MESSAGE_TEXTE3	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        HARRINGTON, Professeur\n\nNuméro de message :\n        20020451S-511322T\n\n\n	Je viens de saisir les propos de deux militaires\nil y a quelques instants à peine.\nCeux ci sont dans un état de grande agitation : des signes\nd'activité d'origine extraterrestre ont été détectés en profondeur\ndu secteur principal de BlackMesa.\nLes militaires pensaient avoir définitivement éliminé la menace\nennemie avec la destruction du nihilant ; il apparait qu'ils\ndoivent toujours posséder un échantillon de ce minéral\npermettant la téléportation.\n"
-#define MESSAGE_TEXTE4	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        NEWEL, Professeur\n\nNuméro de message :\n        50235548D-459635F\n\n\n	Cher collègue,\nJe ne supporte pas la présence de ces caméras dans tout\nle bâtiment ; les militaires ont récemment rétabli\nà leur profit ces engins dans les couloirs.\nJ'ai piraté le système de sécurité, que ces imbéciles ont relié\nau réseau informatique. Les caméras peuvent être désactivées\nà l'aide d'un code mais je ne sais pas encore à partir de\nquel ordinateur.\n\n\nIl s'agit d'un code à quatre chiffres :\nle     7-6-0-2\nAvertissez moi si vous avez du nouveau sur cette affaire.\n"
+#define TITLE_TEXT		"Rï¿½seau informatique interne de Black Mesa"
+#define INTRO_TEXT		"Terminal nï¿½ 622 - 431 - 018\nSecteur L-G12\n\nL'acces aux donnï¿½es de ce systï¿½me est\nstrictement rï¿½servï¿½ au personnel accrï¿½ditï¿½.\n\nToute utilisation non-autorisï¿½e donnera lieu\nï¿½ un renvoi immï¿½diat et sera \nsï¿½vï¿½rement punie.\n\n\nVotre code ECA peut vous ï¿½tre demandï¿½.\nIl figure sur votre autorisation d'utilisation ï¿½ retirer\nau bureau du personnel, secteur A niveau 5.\n\nLa direction du centre de recherches de Black Mesa\nne peut en aucun cas ï¿½tre tenue pour responsable\nde la perte de ce code."	
+#define MESSAGE_TEXTE5	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        ROSENBERG, Docteur\n\nNumï¿½ro de message :\n        08042002P-194122M\n\n\n	Cher collï¿½gue, je m'inquiï¿½te de l'activitï¿½ des militaires\nces jours ci. Ils nous ont permi de poursuivre nos travaux\ncar je crois que la technologie de la tï¿½lï¿½portation les intï¿½ressait.\nMais j'ai l'impression que cela ne va pas durer.\nIls se dï¿½barasseront de nous quand nous\nne leur feront plus besoin.\n"
+#define MESSAGE_TEXTE2	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        VAN BUREN, Docteur\n\nNumï¿½ro de message :\n        36682929L-220614M\n\n\n	Je vous addresse ce courrier pour vous prier\nde bien vouloir vous rendre au plus vite dans mon bureau.\nJ'ai des rï¿½vï¿½lations importantes ï¿½ vous faire\nconcernant l'activitï¿½ des militaires.\nCeux-ci ont des raisons de croire que la menace extraterrestre\nn'est pas encore ï¿½cartï¿½e ; cela pourrait nous causer\nde graves ennuis.\n"
+#define MESSAGE_TEXTE3	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        HARRINGTON, Professeur\n\nNumï¿½ro de message :\n        20020451S-511322T\n\n\n	Je viens de saisir les propos de deux militaires\nil y a quelques instants ï¿½ peine.\nCeux ci sont dans un ï¿½tat de grande agitation : des signes\nd'activitï¿½ d'origine extraterrestre ont ï¿½tï¿½ dï¿½tectï¿½s en profondeur\ndu secteur principal de BlackMesa.\nLes militaires pensaient avoir dï¿½finitivement ï¿½liminï¿½ la menace\nennemie avec la destruction du nihilant ; il apparait qu'ils\ndoivent toujours possï¿½der un ï¿½chantillon de ce minï¿½ral\npermettant la tï¿½lï¿½portation.\n"
+#define MESSAGE_TEXTE4	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        NEWEL, Professeur\n\nNumï¿½ro de message :\n        50235548D-459635F\n\n\n	Cher collï¿½gue,\nJe ne supporte pas la prï¿½sence de ces camï¿½ras dans tout\nle bï¿½timent ; les militaires ont rï¿½cemment rï¿½tabli\nï¿½ leur profit ces engins dans les couloirs.\nJ'ai piratï¿½ le systï¿½me de sï¿½curitï¿½, que ces imbï¿½ciles ont reliï¿½\nau rï¿½seau informatique. Les camï¿½ras peuvent ï¿½tre dï¿½sactivï¿½es\nï¿½ l'aide d'un code mais je ne sais pas encore ï¿½ partir de\nquel ordinateur.\n\n\nIl s'agit d'un code ï¿½ quatre chiffres :\nle     7-6-0-2\nAvertissez moi si vous avez du nouveau sur cette affaire.\n"
 
-//#define MESSAGE_TEXTE1	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        JOHNSON, Docteur\n\nNuméro de message :\n        54995115S-852147H\n\n\n	MESSAGE A L INTENTION DE M.FREEMAN\n\nFreeman, je vois que mon collègue vous a dit que\nje souhaitais vous rencontrer. Malheureusement je crains\nde vous avoir attiré malgré moi dans un piège.\nLes militaires ont un moment toléré la présence des scientifiques\ndans le bâtiment central de Black Mesa, où vous\nvous trouvez actuellement ; cependant depuis qu'ils ont\ndétecté de nouveaux signaux extraterrestres ils ont\nprocédé à l'évacuation de la base. Mes collègues et moi avons\ndu fuir avant de pouvoir entrer en contact avec vous.\nJe vous attends toujours dans un étage inférieur du bâtiment.\n\nVous pouvez désactiver les caméras de sécurité depuis cet\nordinateur, mais il vous faudra le code. Un de mes collègues\nl'a découvert : vous le trouverez sur un ordinateur\npersonnel dans un des bureaux de cet étage.\n"
+//#define MESSAGE_TEXTE1	"============================================================\n================   MESSAGERIE   ===================\n\nMessage de :\n        JOHNSON, Docteur\n\nNumï¿½ro de message :\n        54995115S-852147H\n\n\n	MESSAGE A L INTENTION DE M.FREEMAN\n\nFreeman, je vois que mon collï¿½gue vous a dit que\nje souhaitais vous rencontrer. Malheureusement je crains\nde vous avoir attirï¿½ malgrï¿½ moi dans un piï¿½ge.\nLes militaires ont un moment tolï¿½rï¿½ la prï¿½sence des scientifiques\ndans le bï¿½timent central de Black Mesa, oï¿½ vous\nvous trouvez actuellement ; cependant depuis qu'ils ont\ndï¿½tectï¿½ de nouveaux signaux extraterrestres ils ont\nprocï¿½dï¿½ ï¿½ l'ï¿½vacuation de la base. Mes collï¿½gues et moi avons\ndu fuir avant de pouvoir entrer en contact avec vous.\nJe vous attends toujours dans un ï¿½tage infï¿½rieur du bï¿½timent.\n\nVous pouvez dï¿½sactiver les camï¿½ras de sï¿½curitï¿½ depuis cet\nordinateur, mais il vous faudra le code. Un de mes collï¿½gues\nl'a dï¿½couvert : vous le trouverez sur un ordinateur\npersonnel dans un des bureaux de cet ï¿½tage.\n"
 #define MESSAGE_TEXTE1	GetOrdiText ( "MESSAGE_TEXTE1" )
 
-#define INFO_TEXTE1		"============================================================\n================   INFORMATIONS   ===================\n\n Destinées à tout le personnel\n\n     Note n°54231 :\n A partir de la semaine prochaine, les locaux\nde l'aile B-85A du bâtiment seront utilisés\n par l'équipe alpha 21.\n\nEn raison de l'extrême confidentialité des recherches\neffectuées, toute circulation de personne étrangère au service\n sera formellement interdite.\n\n"
-#define INFO_TEXTE2		"============================================================\n================   INFORMATIONS   ===================\n\n Destinées à tout le personnel\n\n     Note n°54232 :\n Suite à un usage intempestif et violent de la part de\ncertains employés, le distributeur de boissons de\nl'étage B-791FG est momentanément hors-service.\nLa Direction signale que ce distributeur est la\npropriété de tous les employés et qu'ils\ndoivent en prendre soin.\n"
+#define INFO_TEXTE1		"============================================================\n================   INFORMATIONS   ===================\n\n Destinï¿½es ï¿½ tout le personnel\n\n     Note nï¿½54231 :\n A partir de la semaine prochaine, les locaux\nde l'aile B-85A du bï¿½timent seront utilisï¿½s\n par l'ï¿½quipe alpha 21.\n\nEn raison de l'extrï¿½me confidentialitï¿½ des recherches\neffectuï¿½es, toute circulation de personne ï¿½trangï¿½re au service\n sera formellement interdite.\n\n"
+#define INFO_TEXTE2		"============================================================\n================   INFORMATIONS   ===================\n\n Destinï¿½es ï¿½ tout le personnel\n\n     Note nï¿½54232 :\n Suite ï¿½ un usage intempestif et violent de la part de\ncertains employï¿½s, le distributeur de boissons de\nl'ï¿½tage B-791FG est momentanï¿½ment hors-service.\nLa Direction signale que ce distributeur est la\npropriï¿½tï¿½ de tous les employï¿½s et qu'ils\ndoivent en prendre soin.\n"
 
 #define REFUSE_TEXTE	"============================================================\n================   AVERTSSEMENT   ===================\n\nVOUS N'ETES PAS AUTORISE\n A ACCEDER A CES INFORMATIONS"
-#define KEYPAD_TEXTE	"============================================================\n================     SECURITE     ===================\n\nLa modification de tout paramètre\nrelatif à la sécurité du bâtiment est strictement réservée\nau personnel accrédité.\nSi en cas d'extrême urgence il était nécessaire\nde désactiver les caméras de sécurité,\nveuillez entrer votre code ECA ci dessous."
-#define KEYPAD_TEXTE2	"============================================================\n================     SECURITE     ===================\n\n\n\n\nCameras de securité desactivées !"
+#define KEYPAD_TEXTE	"============================================================\n================     SECURITE     ===================\n\nLa modification de tout paramï¿½tre\nrelatif ï¿½ la sï¿½curitï¿½ du bï¿½timent est strictement rï¿½servï¿½e\nau personnel accrï¿½ditï¿½.\nSi en cas d'extrï¿½me urgence il ï¿½tait nï¿½cessaire\nde dï¿½sactiver les camï¿½ras de sï¿½curitï¿½,\nveuillez entrer votre code ECA ci dessous."
+#define KEYPAD_TEXTE2	"============================================================\n================     SECURITE     ===================\n\n\n\n\nCameras de securitï¿½ desactivï¿½es !"
 */
 
 
@@ -71,7 +71,7 @@ void GetOrdiText ( const char *textname, char *messagename, Font *pRadioFont, in
 COrdiMenuPanel :: COrdiMenuPanel(int iTrans, int iRemoveMe, int x,int y,int wide,int tall) : CMenuPanel(iTrans, iRemoveMe, x,y,wide,tall)
 {
 	//constructeur du vgui - initialise les elements sans les afficher
-	//fonction appelée a chaque chargement de niveau
+	//fonction appelï¿½e a chaque chargement de niveau
 	//aucun texte pour l instant - celui ci est cree lors de l affichage des menus
 
 	Initialize();
@@ -97,7 +97,7 @@ COrdiMenuPanel :: COrdiMenuPanel(int iTrans, int iRemoveMe, int x,int y,int wide
 
 
 	//====================================
-	// éléments des menus
+	// ï¿½lï¿½ments des menus
 	//====================================
 
 	// fenetre
@@ -460,7 +460,7 @@ void CMenuHandler_OrdiMenu :: actionPerformed(Panel* panel)		// fonction declenc
 		gEngfuncs.pfnClientCmd("ordimenu 1" );
 
 
-		// décale les chiffres d'une place
+		// dï¿½cale les chiffres d'une place
 
 		for ( int l = 0; l < 3; l++ )
 		{
@@ -539,12 +539,12 @@ void GetOrdiText ( const char *textname, char *messagename, Font *pRadioFont, in
 		SCANNE_CHAR;		
 		if ( std::strcmp ( cscan, messagename ) != 0 ) continue;
 
-		// point d'entrée
+		// point d'entrï¿½e
 
 		SCANNE_CHAR;
 		if ( std::strcmp ( cscan, "{" ) != 0 ) continue;
 
-		// offsets de départ et d'arrivée
+		// offsets de dï¿½part et d'arrivï¿½e
 
 		int startoffset = (int)std::ftell ( myfile ) + 2;
 		
@@ -557,7 +557,7 @@ void GetOrdiText ( const char *textname, char *messagename, Font *pRadioFont, in
 
 		int stopoffset = (int)std::ftell ( myfile );
 
-		// récupération du texte
+		// rï¿½cupï¿½ration du texte
 
 		std::fseek ( myfile, startoffset, SEEK_SET );
 
@@ -670,7 +670,7 @@ void GetOrdiText ( const char *textname, char *messagename, Font *pRadioFont, in
 //			curseurY += gHUD.m_scrinfo.iCharHeight;
 
 			
-			// retour à la ligne
+			// retour ï¿½ la ligne
 			curseurX = 0;
 
 			std::strcat ( dest, "\n" );

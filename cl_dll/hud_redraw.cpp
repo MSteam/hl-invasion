@@ -322,6 +322,37 @@ int CHud :: DrawHudNumber( int x, int y, int iFlags, int iNumber, int r, int g, 
 }
 
 
+int CHud::DrawSmallNumberRight( int xRight, int y, int number, int r, int g, int b )
+{
+	if ( !m_hsprSmallDigits )
+		return xRight;
+
+	const int digitW = 12;
+	const int digitH = 16;
+	int digits = (number >= 100) ? 3 : (number >= 10) ? 2 : 1;
+	int x = xRight - digits * digitW;
+
+	int parts[3];
+	int nParts = 0;
+	if (number >= 100) parts[nParts++] = number / 100;
+	if (number >= 10)  parts[nParts++] = (number % 100) / 10;
+	parts[nParts++] = number % 10;
+
+	for ( int i = 0; i < nParts; i++ )
+	{
+		int k = parts[i];
+		wrect_t rc;
+		rc.left   = k * digitW;
+		rc.right  = rc.left + digitW;
+		rc.top    = 0;
+		rc.bottom = digitH;
+		SPR_Set( m_hsprSmallDigits, r, g, b );
+		SPR_DrawAdditive( 0, x, y, &rc );
+		x += digitW;
+	}
+	return x;
+}
+
 int CHud::GetNumWidth( int iNumber, int iFlags )
 {
 	if (iFlags & (DHN_3DIGITS))

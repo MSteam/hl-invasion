@@ -25,7 +25,7 @@ extern int gmsgRadioMsg;
 
 #define SCANNE_CHAR if ( std::fscanf ( myfile, "%s", cscan ) == EOF ) break
 
-#define TEXT_FILE_PATH			"invasion\\texts.txt"
+#define TEXT_FILE_PATH			"invasion/texts.txt"
 
 
 
@@ -62,12 +62,12 @@ int	GetRadiomsgText ( int iszMessage )
 		SCANNE_CHAR;		
 		if ( std::strcmp ( cscan, messagename ) != 0 ) continue;
 
-		// point d'entrée
+		// point d'entrï¿½e
 
 		SCANNE_CHAR;
 		if ( std::strcmp ( cscan, "{" ) != 0 ) continue;
 
-		// offsets de départ et d'arrivée
+		// offsets de dï¿½part et d'arrivï¿½e
 
 		int startoffset = (int)std::ftell ( myfile );
 		
@@ -80,7 +80,7 @@ int	GetRadiomsgText ( int iszMessage )
 
 		int stopoffset = (int)std::ftell ( myfile ) - 4;
 
-		// récupération du texte
+		// rï¿½cupï¿½ration du texte
 
 		std::fseek ( myfile, startoffset, SEEK_SET );
 

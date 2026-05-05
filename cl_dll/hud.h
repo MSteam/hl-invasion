@@ -887,7 +887,7 @@ public:
 
 
 //----------------------------------
-// modif de Julien - définie dans le hudrpg.cpp
+// modif de Julien - dï¿½finie dans le hudrpg.cpp
 
 wrect_t CreateWrect ( int left, int top, int right, int bottom );
 
@@ -1025,6 +1025,11 @@ public:
 	int DrawHudStringReverse( int xpos, int ypos, int iMinX, char *szString, int r, int g, int b );
 	int DrawHudNumberString( int xpos, int ypos, int iMinX, int iNumber, int r, int g, int b );
 	int GetNumWidth(int iNumber, int iFlags);
+
+	// Small (12x16) digit drawing â€” uses sprites/320hud2.spr regardless of m_iRes,
+	// so digits are compact and identical on Windows and Linux. Right-aligned at xRight.
+	HSPRITE m_hsprSmallDigits;
+	int DrawSmallNumberRight( int xRight, int y, int number, int r, int g, int b );
 
 private:
 	// the memory for these arrays are allocated in the first call to CHud::VidInit(), when the hud.txt and associated sprites are loaded.

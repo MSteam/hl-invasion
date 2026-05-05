@@ -1055,8 +1055,8 @@ void Bench_SetViewAngles( int recalc_wander, float *viewangles, float frametime,
 			for ( i = 0; i < 2; i++ )
 			{
 				v_stochastic[ i ] += frametime * gEngfuncs.pfnRandomFloat( -fmag, fmag );
-				v_stochastic[ i ] = max( -15.0, v_stochastic[ i ] );
-				v_stochastic[ i ] = min( 15.0, v_stochastic[ i ] );
+				v_stochastic[ i ] = std::max( -15.0, (double)v_stochastic[ i ] );
+				v_stochastic[ i ] = std::min( 15.0, (double)v_stochastic[ i ] );
 			}
 
 			v_stochastic[ 2 ] = 0.0;

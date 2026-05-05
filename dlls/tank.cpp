@@ -302,7 +302,7 @@ void CTankCam :: CamThink ( void )
 {
 	pev->nextthink = gpGlobals->time + BSP_NEXTTHINK_TIME;
 
-	// fonction appelée tous les 1/20 de seconde
+	// fonction appelï¿½e tous les 1/20 de seconde
 	// le skin des chenilles a besoin d un taux de rafraichissement eleve pour etre realiste
 
 	// skin des chenilles
@@ -316,7 +316,7 @@ void CTankCam :: CamThink ( void )
 
 	if ( (int)m_skin != m_pTankModel->pev->skin )
 	{
-		while ( (int)m_skin > 8 )	//de 0 à 8 : 9 images
+		while ( (int)m_skin > 8 )	//de 0 ï¿½ 8 : 9 images
 		{
 			m_skin -= 8;
 		}
@@ -351,7 +351,7 @@ void CTankCam :: CamThink ( void )
 void	CTankCam :: SetPlayerTankView ( BOOL setOn )
 {
 
-	// bug des dommages à la sauvegarde
+	// bug des dommages ï¿½ la sauvegarde
 
 	m_pTankModel->m_flTempHealth = m_pTankModel->m_pTankBSP->pev->health;
 
@@ -423,7 +423,7 @@ int CTankBSP :: Classify( void )
 
 	CTank *pTank = (CTank*) CBaseEntity::Instance(pent);
 
-	// classe selon l'état du tank
+	// classe selon l'ï¿½tat du tank
 
 	if ( pTank->bTankOn == 1 )
 		return CLASS_PLAYER_ALLY;
@@ -435,7 +435,7 @@ int CTankBSP :: Classify( void )
 
 void CTankBSP :: TankThink ( void )
 {
-	//ne sert strictement à rien mais sans cette fonction think, les vecteurs vitesse ne veulent pas s'appliquer à mon tank
+	//ne sert strictement ï¿½ rien mais sans cette fonction think, les vecteurs vitesse ne veulent pas s'appliquer ï¿½ mon tank
 	pev->nextthink = pev->ltime + 0xFF;
 }
 
@@ -461,7 +461,7 @@ int	CTankBSP :: TakeDamage ( entvars_t* pevInflictor, entvars_t* pevAttacker, fl
 	if ( FClassnameIs(pevInflictor, "player") )
 		return 1;
 
-	// que des dégâts par explosifs
+	// que des dï¿½gï¿½ts par explosifs
 	if ( !(bitsDamageType & DMG_BLAST) )
 		return 1;
 
@@ -469,7 +469,7 @@ int	CTankBSP :: TakeDamage ( entvars_t* pevInflictor, entvars_t* pevAttacker, fl
 	if ( pevInflictor == m_pTankModel->pev )
 		return 1;
 
-	// déjà mort
+	// dï¿½jï¿½ mort
 	if ( pev->health == 0 )
 		return 1;
 
@@ -483,7 +483,7 @@ int	CTankBSP :: TakeDamage ( entvars_t* pevInflictor, entvars_t* pevAttacker, fl
 
 	if ( m_pTankModel->m_pCam != NULL )
 	{
-		m_pTankModel->m_pCam->SetPlayerTankView(TRUE);	// rafraichissement de la vie côté client
+		m_pTankModel->m_pCam->SetPlayerTankView(TRUE);	// rafraichissement de la vie cï¿½tï¿½ client
 
 		if (pev->health <= 0 )
 		{
@@ -672,9 +672,9 @@ void CTank :: IdleThink ( void )
 
 
 //============================================
-//	Le bone controller 0 correspond au déplacement haut-bas
-//	il équivaut à l axe X du joueur
-//	le bone 1 est le déplacement gauche-droite
+//	Le bone controller 0 correspond au dï¿½placement haut-bas
+//	il ï¿½quivaut ï¿½ l axe X du joueur
+//	le bone 1 est le dï¿½placement gauche-droite
 //	et l axe y du joueur
 
 
@@ -697,7 +697,7 @@ void CTank :: DriveThink ( void )
 
 		m_pTankBSP->pev->health = m_flTempHealth;
 
-		// réglages camera & hud
+		// rï¿½glages camera & hud
 
 		m_pCam->SetPlayerTankView ( TRUE );
 		bSetView = 0;
@@ -925,7 +925,7 @@ void CTank :: DriveThink ( void )
 		flNewAVelocity = 0;
 
 
-	// test de la position envisagée
+	// test de la position envisagï¿½e
 
 	UTIL_MakeVectors ( pev->angles + Vector ( 0, flNewAVelocity / 10 , 0) );
 
@@ -961,7 +961,7 @@ void CTank :: DriveThink ( void )
 
 		m_pTankBSP->pev->velocity = (( pev->origin + vecNewVelocity * 10 ) - m_pTankBSP->pev-> origin ) / 10 ;
 		m_pTankBSP->pev->avelocity = (( pev->angles + Vector ( 0, flNewAVelocity * 10, 0 ) - m_pTankBSP->pev->angles )) / 10;
-		// pour combler la différence de vitesse entre le bsp et le mdl
+		// pour combler la diffï¿½rence de vitesse entre le bsp et le mdl
 
 	}
 
@@ -1049,7 +1049,8 @@ void CTank :: DriveThink ( void )
 	if ( m_pPlayer->pev->button & IN_ATTACK2 )
 	{
 		Vector posGun, dirGun;
-		GetAttachment( 3, posGun, Vector ( 0, 0, 0 ) );
+		Vector vecGetAttDummy(0, 0, 0);
+		GetAttachment( 3, posGun, vecGetAttDummy );
 		UTIL_MakeVectorsPrivate( TourelleAngle(), dirGun, NULL, NULL );
 		FireBullets( 1, posGun, dirGun, VECTOR_CONE_5DEGREES, 8192, BULLET_MONSTER_12MM );
 
@@ -1234,7 +1235,7 @@ void CTank :: TankDeath ( void )
 		pGib->pev->nextthink = gpGlobals->time + 1;
 	}
 
-	// étincelles
+	// ï¿½tincelles
 
 	for ( i = 0; i < 10; i++ )
 	{
@@ -1263,7 +1264,8 @@ int CTank :: ModifAngles ( int angle )
 void CTank :: UpdateCamAngle ( Vector vecNewPosition, float flTime )
 {
 	Vector vecNewAngle;
-	GetAttachment( 2, vecCamTarget, Vector ( 0, 0, 0 ) );
+	Vector vecCamDummy(0, 0, 0);
+	GetAttachment( 2, vecCamTarget, vecCamDummy );
 
 	vecNewAngle = UTIL_VecToAngles( vecCamTarget - vecNewPosition );
 	vecNewAngle.x = -vecNewAngle.x;
@@ -1302,7 +1304,8 @@ Vector CTank :: UpdateCam ( void )
 void CTank :: Fire ( int canon )
 {
 	Vector vecGun;
-	GetAttachment( canon, vecGun, Vector(0,0,0) );
+	Vector vecGunDummy(0, 0, 0);
+	GetAttachment( canon, vecGun, vecGunDummy );
 
 	if ( !FStrEq(STRING(gpGlobals->mapname), "l3m10") && !FStrEq(STRING(gpGlobals->mapname), "l3m12")  && !FStrEq(STRING(gpGlobals->mapname), "l3m14")  )
 	{			
@@ -1324,10 +1327,10 @@ void CTank :: Fire ( int canon )
 
 	ExplosionCreate( tr.vecEndPos, pev->angles, NULL/*edict()*/, 250, FALSE );
 
-	// on applique nous-même les dommages - rayon : 250
+	// on applique nous-mï¿½me les dommages - rayon : 250
 	::RadiusDamage( tr.vecEndPos, pev, pev, 300, 300, CLASS_NONE, DMG_BLAST );
 	
-	//effet de fumée
+	//effet de fumï¿½e
 	EnvSmokeCreate( tr.vecEndPos, 4, 10, 2, NULL );
 
 /*	// sprites de feu
@@ -1356,7 +1359,7 @@ void CTank :: Fire ( int canon )
 		pSpr->pev->velocity = Vector ( RANDOM_FLOAT(-50,50),RANDOM_FLOAT(-50,50),RANDOM_FLOAT(130,150) );
 	}
 */
-	//breakable spéciaux
+	//breakable spï¿½ciaux
 
 	if ( FClassnameIs (tr.pHit, "func_breakable") && VARS(tr.pHit)->spawnflags & SF_BREAK_TANKTOUCH )
 	{

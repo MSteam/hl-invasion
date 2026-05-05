@@ -54,23 +54,30 @@ typedef int BOOL;
 #define MAX_PATH PATH_MAX
 #include <limits.h>
 #include <stdarg.h>
-#include <string.h> // memset 
-#ifndef min
-#define min(a,b)  (((a) < (b)) ? (a) : (b))
-#endif
-#ifndef max
-#define max(a,b)  (((a) > (b)) ? (a) : (b))
+#include <string.h> // memset
 #define _vsnprintf(a,b,c,d) vsnprintf(a,b,c,d)
-#endif
 #endif //_WIN32
 
 // Misc C-runtime library headers
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <cmath>
 
-#include <algorithm> // For min/max
+#include <algorithm> // For std::min/std::max
 #include <cctype>
+
+// In this codebase the C++ code uses std::min/std::max (from <algorithm>),
+// so we must NOT define min/max as macros in C++ — that would break std::min/std::max.
+// pm_shared.c has its own min/max #define for the C side.
+#ifndef __cplusplus
+#ifndef min
+#define min(a,b)  (((a) < (b)) ? (a) : (b))
+#endif
+#ifndef max
+#define max(a,b)  (((a) > (b)) ? (a) : (b))
+#endif
+#endif
 
 // Header file containing definition of globalvars_t and entvars_t
 typedef unsigned int func_t;					//

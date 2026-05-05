@@ -8,7 +8,7 @@
 //-	par JujU									-----------
 //-		julien.lecorre@free.fr					-----------
 //---------------------------------------------------------
-//- fichier d'en tête du lecteur mp3 pour mod HL		---
+//- fichier d'en tï¿½te du lecteur mp3 pour mod HL		---
 //---------------------------------------------------------
 //-														---
 //- compatible avec la version 3.6.1 de fmod.dll		---
@@ -22,8 +22,12 @@
 #define MUSIC_H
 
 
-#include <fmod.h>
+#ifdef _WIN32
+#include "fmod.h"
 #include <windows.h>
+#else
+typedef void FSOUND_STREAM;
+#endif
 
 //---------------------------------------------------------
 // defines
@@ -58,30 +62,30 @@ public:
 	// fonctions de lecture
 
 	void OpenFile			( const char *filename, int repeat, int duration, BOOL bNoTrackFile );	// ouverture d'un simple fichier
-	void OpenList			( const char *filename );						// ouverture d'un fichier texte contenant les fichiers à lire
+	void OpenList			( const char *filename );						// ouverture d'un fichier texte contenant les fichiers ï¿½ lire
 
 	void Init				( void );		// initialisation
 
 	void Play				( void );		// lecture
-	void Stop				( void );		// arrêt
+	void Stop				( void );		// arrï¿½t
 	void Reset				( void );		// fermeture
 
 	// variables
 
 //	FSOUND_STREAM *m_fsound;				// handle du fichier en cours de lecture
 
-	BOOL m_IsPlaying;						// témoin de lecture
-	BOOL m_bInit;							// témoin d'inititalisation
+	BOOL m_IsPlaying;						// tï¿½moin de lecture
+	BOOL m_bInit;							// tï¿½moin d'inititalisation
 	float m_flTrackDuration;
 
-	audiofile_t *m_pTrack;					// morceaux à jouer 
+	audiofile_t *m_pTrack;					// morceaux ï¿½ jouer 
 
 	// constructeur / destructeur
 
 	CMusic	()	{ m_bInit = FALSE; m_IsPlaying = FALSE; m_pTrack = NULL; m_flTrackDuration = 0; Reset(); };
 	~CMusic ()	{};
 
-	// fonctions importées de la dll fmod
+	// fonctions importï¿½es de la dll fmod
 
 /*	signed char		(_stdcall * FSOUND_INIT )				(int mixrate, int maxsoftwarechannels, unsigned int flags);
 	void			(_stdcall * FSOUND_CLOSE )				(void);

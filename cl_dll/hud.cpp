@@ -204,7 +204,7 @@ int __MsgFunc_VGUIMenu(const char *pszName, int iSize, void *pbuf)
 }
 
 //modif de Julien
-//permet de passer des paramètres au vgui qui s'affiche
+//permet de passer des paramï¿½tres au vgui qui s'affiche
 
 int __MsgFunc_VGUIordi(const char *pszName, int iSize, void *pbuf)
 {
@@ -540,6 +540,11 @@ void CHud :: VidInit( void )
 	m_HUD_number_0 = GetSpriteIndex( "number_0" );
 
 	m_iFontHeight = m_rgrcRects[m_HUD_number_0].bottom - m_rgrcRects[m_HUD_number_0].top;
+
+	// Small digit atlas (320 resolution: 12x16 per digit) â€” used for compact
+	// HUD readouts where the default 640hud digits would overlap nearby icons.
+	// Reload on each VidInit because engine invalidates sprite handles on level change.
+	m_hsprSmallDigits = SPR_Load( "sprites/320hud2.spr" );
 
 	m_Ammo.VidInit();
 	m_Health.VidInit();

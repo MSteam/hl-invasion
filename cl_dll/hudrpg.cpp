@@ -80,16 +80,15 @@ int CHudRPG :: Draw	( float flTime )
 	else
 		SPR_DrawAdditive( 0, iTopleftX + 96, iTopleftY, &m_rcEmpty );
 
-	gHUD.DrawHudNumberString
-		( iTopleftX + 10, iTopleftY - 15, iTopleftX - 100, m_iAmmo1,
+	// Small sprite digits (12x16), right-aligned just under each rocket icon (icons are 48 wide).
+	// Otherwise the engine font (especially on Linux) would overlap the icon graphics.
+	gHUD.DrawSmallNumberRight( iTopleftX + 44,        iTopleftY - 15, m_iAmmo1,
 			m_iAmmo1 ? iYellow[0] : iRed[0], m_iAmmo1 ? iYellow[1] : iRed[1], m_iAmmo1 ? iYellow[2] : iRed[2] );
 
-	gHUD.DrawHudNumberString
-		( iTopleftX + 48 + 10, iTopleftY - 15, iTopleftX - 100, m_iAmmo2,
+	gHUD.DrawSmallNumberRight( iTopleftX + 48 + 44,   iTopleftY - 15, m_iAmmo2,
 			m_iAmmo2 ? iYellow[0] : iRed[0], m_iAmmo2 ? iYellow[1] : iRed[1], m_iAmmo2 ? iYellow[2] : iRed[2] );
 
-	gHUD.DrawHudNumberString
-		( iTopleftX + 48 + 48 + 10, iTopleftY - 15, iTopleftX - 100, m_iAmmo3,
+	gHUD.DrawSmallNumberRight( iTopleftX + 96 + 44,   iTopleftY - 15, m_iAmmo3,
 			m_iAmmo3 ? iYellow[0] : iRed[0], m_iAmmo3 ? iYellow[1] : iRed[1], m_iAmmo3 ? iYellow[2] : iRed[2] );
 
 
